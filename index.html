@@ -181,21 +181,18 @@
   </footer>
   
   <script>
-    // دالة للتعرف على نظام التشغيل وإعادة التوجيه إلى رابط التنزيل المناسب
-    function handleDownload() {
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      // إذا كان الجهاز يعمل بنظام Android
-      if (/android/i.test(userAgent)) {
-        window.location.href = "C:\Users\badra\AndroidStudioProjects\step_ccode\build\app\outputs\apk\release"; // استبدل برابط ملف APK الخاص بتطبيقك
-      }
-      // إذا كان الجهاز يعمل بنظام iOS
-      else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        window.location.href = "https://apps.apple.com/app/idXXXXXXXX"; // استبدل برابط App Store الخاص بتطبيقك
-      }
-      else {
-        alert("يرجى استخدام جهاز محمول لتحميل التطبيق مباشرة.");
-      }
-    }
+   function handleDownload() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  if (/android/i.test(userAgent)) {
+    // استبدل الرابط هنا بالرابط المباشر الذي حصلت عليه من GitHub
+    window.location.href = "https://github.com/badralzabi/stepcode_home/releases/download/v1.0/step_ccode.apk";
+  } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    window.location.href = "https://apps.apple.com/app/idXXXXXXXX";
+  } else {
+    alert("يرجى استخدام جهاز محمول لتحميل التطبيق مباشرة.");
+  }
+}
+
     
     // ربط زري "ابدأ الآن" و"تحميل التطبيق" بوظيفة التنزيل
     document.getElementById('downloadBtn').addEventListener('click', function(e) {
