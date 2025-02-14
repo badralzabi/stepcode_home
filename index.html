@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StepCode - التطبيق التعليمي</title>
+  <style>
+    /* تعريف المتغيرات الأساسية للوضع الداكن */
+    :root {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --accent-color: #64ffda;
+      --header-bg: linear-gradient(135deg, #1f1f1f, #333);
+      --card-bg: #1f1f1f;
+      --btn-bg: #64ffda;
+      --btn-hover-bg: #52d0b8;
+      --footer-bg: #1f1f1f;
+    }
+    /* تعريف المتغيرات للوضع الفاتح */
+    .light-mode {
+      --bg-color: #ffffff;
+      --text-color: #333;
+      --accent-color: #007acc;
+      --header-bg: linear-gradient(135deg, #fff, #ddd);
+      --card-bg: #f9f9f9;
+      --btn-bg: #007acc;
+      --btn-hover-bg: #005f99;
+      --footer-bg: #ddd;
+    }
+    /* إعادة تعيين الأنماط الأساسية */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    header {
+      background: var(--header-bg);
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--btn-bg);
+      color: var(--bg-color);
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: var(--btn-hover-bg);
+    }
+    section {
+      padding: 4rem 1rem;
+    }
+    section#about,
+    section#download {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section#features {
+      text-align: center;
+    }
+    #features .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      flex: 1 1 300px;
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    .feature h3 {
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--footer-bg);
+    }
+    /* زر تبديل الوضع */
+    .mode-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--btn-bg);
+      color: var(--bg-color);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+    .mode-btn:hover {
+      background-color: var(--btn-hover-bg);
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      #features .features { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- زر تبديل الوضع (دارك/فاتح) -->
+  <button id="modeToggle" class="mode-btn">الوضع الفاتح</button>
+
+  <!-- الهيدر -->
+  <header>
+    <h1>StepCode</h1>
+    <p>تعلّم البرمجة بأحدث التقنيات في بيئة تعليمية عصرية</p>
+    <a id="downloadBtn" href="#" class="btn">ابدأ الآن</a>
+  </header>
+  
+  <!-- قسم حول التطبيق -->
+  <section id="about">
+    <h2>حول التطبيق</h2>
+    <p>
+      StepCode هو تطبيق تعليمي مبتكر يهدف إلى تعليم البرمجة بطريقة تفاعلية وسهلة، مع تصميم عصري يتناسب مع احتياجات المستخدمين.
+    </p>
+  </section>
+  
+  <!-- قسم المميزات -->
+  <section id="features">
+    <h2>المميزات</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>واجهة مستخدم عصرية</h3>
+        <p>تصميم أنيق وخالي من الفوضى يضمن تجربة مستخدم رائعة.</p>
+      </div>
+      <div class="feature">
+        <h3>دورات تعليمية متكاملة</h3>
+        <p>مجموعة واسعة من الدورات المتخصصة في مجالات البرمجة المختلفة.</p>
+      </div>
+      <div class="feature">
+        <h3>تجربة تفاعلية</h3>
+        <p>اختبارات وتمارين تفاعلية تساعدك على تثبيت المعلومات.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- قسم التحميل -->
+  <section id="download">
+    <h2>ابدأ الآن</h2>
+    <p>حمّل التطبيق الآن واستمتع بتجربة تعليمية فريدة ومبتكرة.</p>
+    <a id="downloadBtn2" href="#" class="btn">تحميل التطبيق</a>
+  </section>
+  
+  <!-- الفوتر -->
+  <footer>
+    <p>&copy; 2025 StepCode. جميع الحقوق محفوظة.</p>
+    <p>تابعني على انستغرام: <a href="https://instagram.com/bh.adr" target="_blank">@bh.adr - بدر الزعبي، مهندس برمجيات</a></p>
+  </footer>
+  
+  <script>
+    // دالة للتعرف على نظام التشغيل وإعادة التوجيه إلى رابط التنزيل المناسب
+    function handleDownload() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      // إذا كان الجهاز يعمل بنظام Android
+      if (/android/i.test(userAgent)) {
+        window.location.href = "C:\Users\badra\AndroidStudioProjects\step_ccode\build\app\outputs\apk\release"; // استبدل برابط ملف APK الخاص بتطبيقك
+      }
+      // إذا كان الجهاز يعمل بنظام iOS
+      else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://apps.apple.com/app/idXXXXXXXX"; // استبدل برابط App Store الخاص بتطبيقك
+      }
+      else {
+        alert("يرجى استخدام جهاز محمول لتحميل التطبيق مباشرة.");
+      }
+    }
+    
+    // ربط زري "ابدأ الآن" و"تحميل التطبيق" بوظيفة التنزيل
+    document.getElementById('downloadBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      handleDownload();
+    });
+    document.getElementById('downloadBtn2').addEventListener('click', function(e) {
+      e.preventDefault();
+      handleDownload();
+    });
+    
+    // زر تبديل الوضع (دارك/فاتح)
+    document.getElementById('modeToggle').addEventListener('click', function() {
+      document.body.classList.toggle('light-mode');
+      // تغيير نص الزر بناءً على الوضع الحالي
+      if(document.body.classList.contains('light-mode')){
+        this.textContent = "الوضع الداكن";
+      } else {
+        this.textContent = "الوضع الفاتح";
+      }
+    });
+  </script>
+</body>
+</html>
